@@ -1,36 +1,243 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
+    <title>Damage Calculator - RPG Maker FES</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   </head>
   <body>
-
     <div class="container">
-      <div class="row" id="heading">
-        <h1>Damage Calculator</h1>
-      </div>
-      <div class="row" id="subheading">
-        <h3>For use with RPG Maker Fes</h3>
+      <div class="row">
+        <div class="col">
+          <h1>Damage Calculator</h1>
+        </div>
       </div>
       <div class="row">
-
+        <div class="col">
+          <h2>for RPG Maker FES</h2>
+        </div>
       </div>
 
+      <div id="accordion" role="tablist">
+        <div class="card">
+
+          <div class="card-header" role="tab" id="headingOne">
+            <h5 class="mb-0">
+              <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Player Character Attack Calculator
+              </a>
+            </h5>
+          </div>
+
+          <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              <ul class="nav nav-tabs nav-fill">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Normal Attack</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Deathblow</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Magic</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Heal Skill</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Item Attack</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div> <!-- headingOne card -->
+        <div class="card">
+          <div class="card-header" role="tab" id="headingTwo">
+            <h5 class="mb-0">
+              <a data-toggle="collapse" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                Monster Attack Calculator
+              </a>
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+              <ul class="nav nav-tabs nav-fill">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Normal Attack</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Deathblow</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Magic</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Heal Skill</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Item Attack</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div> <!-- card 2, monster attack calc -->
+        <div class="card">
+          <div class="card-header" role="tab" id="headingThree">
+            <h5 class="mb-0">
+              <a data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                Player Character Stats
+              </a>
+            </h5>
+          </div>
+          <div id="collapseThree" class="collapse show" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+              <form id="playerStats">
+                <div class="row">
+                  <div class="col-sm-4" id="innateAttributes">
+                    <h5>Innate Attributes</h5>
+
+                    <div class="form-group row">
+                      <label for="playerStrength" class="col-sm-8 col-form-label">Strength</label>
+                      <div class="col-sm-4">
+                        <input type="text" id="playerStrength" class="form-control" placeholder="1">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="playerDefense" class="col-sm-8 col-form-label">Defense</label>
+                      <div class="col-sm-4">
+                        <input type="text" id="playerDefense" class="form-control" placeholder="1">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="playerMagic" class="col-sm-8 col-form-label">Magic</label>
+                      <div class="col-sm-4">
+                        <input type="text" id="playerMagic" class="form-control" placeholder="1">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="playerIntelligence" class="col-sm-8 col-form-label">Intelligence</label>
+                      <div class="col-sm-4">
+                        <input type="text" id="playerIntelligence" class="form-control" placeholder="1">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="playerSpeed" class="col-sm-8 col-form-label">Speed</label>
+                      <div class="col-sm-4">
+                        <input type="text" id="playerSpeed" class="form-control" placeholder="1">
+                      </div>
+                    </div>
+
+                  </div> <!-- col-md-5 -->
+
+                  <div class="col-sm-4" id="equipmentAttributes">
+                    <h5>Equipment Attributes</h5>
+
+                    <div class="form-group row">
+                      <label for="weaponAttack" class="col-sm-8 col-form-label">Weapon Attack</label>
+                      <div class="col-sm-4">
+                        <input type="text" id="weaponAttack" class="form-control" placeholder="1">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="weaponMagicPower" class="col-sm-8 col-form-label">Weapon Magic Power</label>
+                      <div class="col-sm-4">
+                        <input type="text" id="weaponMagicPower" class="form-control" placeholder="1">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="weaponNumOfAttacks" class="col-sm-8 col-form-label">Weapon Number of Attacks</label>
+                      <div class="col-sm-4">
+                        <input type="text" id="weaponNumOfAttacks" class="form-control" placeholder="1">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="weaponElement" class="col-sm-6 col-form-label">Weapon Element</label>
+                      <div class="col-sm-6">
+                        <input list="elementList" id="weaponElement" class="form-control" placeholder="Neutral">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="armorDefense" class="col-sm-8 col-form-label">Armor Defense</label>
+                      <div class="col-sm-4">
+                        <input type="text" id="armorDefense" class="form-control" placeholder="1">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="armorMagicDefense" class="col-sm-8 col-form-label">Armor Magic Defense</label>
+                      <div class="col-sm-4">
+                        <input type="text" id="armorMagicDefense" class="form-control" placeholder="1">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="armorElement" class="col-sm-6 col-form-label">Armor Element</label>
+                      <div class="col-sm-6">
+                        <input list="elementList" id="armorElement" class="form-control" placeholder="Neutral">
+                      </div>
+                    </div>
+
+                    <datalist id="elementList">
+                      <option value="Neutral">
+                      <option value="Fire">
+                      <option value="Air">
+                      <option value="Earth">
+                      <option value="Water">
+                      <option value="Light">
+                      <option value="Dark">
+                    </datalist>
+
+                  </div><!-- col -->
+
+                  <div class="col-sm-4">
+                    <h5>Derived Stats</h5>
+
+                    <div class="row">
+                      <div class="col-sm-8">Attack Power</div>
+                      <div class="col-sm-4" id="attackPower">1</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-8">Physical Defense</div>
+                      <div class="col-sm-4" id="physDefense">1</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-8">Magic Defense</div>
+                      <div class="col-sm-4" id="magicDefense">1</div>
+                    </div>
+                  </div>
+
+                </div><!-- row -->
+
+
+              </form>
+            </div>
+          </div>
+        </div> <!-- Card 3, player stats -->
+
+
+      </div> <!-- accordion -->
 
 
 
-    </div> <!-- container -->
+
+    </div> <!-- container div -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-    <script src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
   </body>
 </html>
