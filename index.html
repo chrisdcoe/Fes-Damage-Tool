@@ -22,87 +22,95 @@
         </div>
       </div>
 
-      <div id="accordion" role="tablist">
+      <div id="accordionOne" role="tablist">
         <div class="card">
-
-          <div class="card-header" role="tab" id="headingOne">
+          <div class="card-header" role="tab" id="attackHeadingOne">
             <h5 class="mb-0 text-center">
-              <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <a data-toggle="collapse" href="#attackCollapseOne" aria-expanded="true" aria-controls="attackCollapseOne">
                 Player Character Attack Calculator
               </a>
             </h5>
           </div>
 
-          <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+          <div id="attackCollapseOne" class="collapse show" role="tabpanel" aria-labelledby="attackHeadingOne" data-parent="#accordionOne">
             <div class="card-body">
               <ul class="nav nav-tabs nav-fill">
                 <li class="nav-item">
-                  <a class="nav-link active" href="#">Normal Attack</a>
+                  <a class="nav-link active" id="playerAttack" onClick="playerTabChange(this)" href="#">Normal Attack</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Deathblow</a>
+                  <a class="nav-link" id="playerDeathblow" onClick="playerTabChange(this)" href="#">Deathblow</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Magic</a>
+                  <a class="nav-link" id="playerMagic" onClick="playerTabChange(this)" href="#">Magic</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Heal Skill</a>
+                  <a class="nav-link" id="playerHeal" onClick="playerTabChange(this)" href="#">Heal Skill</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Item Attack</a>
+                  <a class="nav-link" id="playerItem" onClick="playerTabChange(this)" href="#">Item Attack</a>
                 </li>
               </ul>
+              <div class="card-body" id="playerActionContent">
+                <p>temp</p>
+              </div>
             </div>
           </div>
         </div> <!-- headingOne card -->
 
         <div class="card">
-          <div class="card-header" role="tab" id="headingTwo">
+          <div class="card-header" role="tab" id="attackHeadingTwo">
             <h5 class="mb-0 text-center">
-              <a data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <a data-toggle="collapse" href="#attackCollapseTwo" aria-expanded="false" aria-controls="attackCollapseTwo">
                 Monster Attack Calculator
               </a>
             </h5>
           </div>
-          <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+          <div id="attackCollapseTwo" class="collapse" role="tabpanel" aria-labelledby="attackHeadingTwo" data-parent="#accordionOne">
             <div class="card-body">
               <ul class="nav nav-tabs nav-fill">
                 <li class="nav-item">
-                  <a class="nav-link active" href="#">Normal Attack</a>
+                  <a class="nav-link active" id="monsterAttack" onClick="monsterTabChange(this)" href="#">Normal Attack</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Thrust Attack</a>
+                  <a class="nav-link" id="monsterThrust" onClick="monsterTabChange(this)" href="#">Thrust Attack</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Critical</a>
+                  <a class="nav-link" id="monsterCritical" onClick="monsterTabChange(this)" href="#">Critical</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Breathe Flame</a>
+                  <a class="nav-link" id="monsterBreathe" onClick="monsterTabChange(this)" href="#">Breathe Flame</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Self Destruct</a>
+                  <a class="nav-link" id="monsterSelfDestruct" onClick="monsterTabChange(this)" href="#">Self Destruct</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Deathblow</a>
+                  <a class="nav-link" id="monsterDeathblow" onClick="monsterTabChange(this)" href="#">Deathblow</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Magic</a>
+                  <a class="nav-link" id="monsterMagic" onClick="monsterTabChange(this)" href="#">Magic</a>
                 </li>
               </ul>
+              <div class="card-body" id="monsterActionContent">
+
+              </div>
             </div>
           </div>
         </div> <!-- card 2, monster attack calc -->
+      </div> <!-- accordion -->
+
+      <div id="accordionTwo" role="tablist">
         <div class="card">
-          <div class="card-header" role="tab" id="headingThree">
+          <div class="card-header" role="tab" id="statsHeadingOne">
             <h5 class="mb-0 text-center">
-              <a data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <a data-toggle="collapse" href="#statsCollapseOne" aria-expanded="true" aria-controls="statsCollapseOne">
                 Player Character Stats
               </a>
             </h5>
           </div>
-          <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+          <div id="statsCollapseOne" class="collapse show" role="tabpanel" aria-labelledby="statsHeadingOne" data-parent="#accordionTwo">
             <div class="card-body">
-              <form id="formPlayerStats">
+              <form id="formPlayerStats" onkeyup="refreshAttackCards()">
                 <div class="row">
                   <div class="col-sm-4" id="innateAttributes">
                     <h4 class="text-center">Innate Attributes</h4>
@@ -110,35 +118,35 @@
                     <div class="form-group row">
                       <label for="playerStrength" class="col-sm-8 col-form-label">Strength</label>
                       <div class="col-sm-4">
-                        <input type="text" id="playerStrength" class="form-control" placeholder="1">
+                        <input type="text" id="playerStrength" class="form-control" value="1" onkeyup="deriveAttackPower()">
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="playerDefense" class="col-sm-8 col-form-label">Defense</label>
                       <div class="col-sm-4">
-                        <input type="text" id="playerDefense" class="form-control" placeholder="1">
+                        <input type="text" id="playerDefense" class="form-control" value="1" onkeyup="derivePhysicalDefense()">
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="playerMagic" class="col-sm-8 col-form-label">Magic</label>
                       <div class="col-sm-4">
-                        <input type="text" id="playerMagic" class="form-control" placeholder="1">
+                        <input type="text" id="playerMagic" class="form-control" value="1">
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="playerIntelligence" class="col-sm-8 col-form-label">Intelligence</label>
                       <div class="col-sm-4">
-                        <input type="text" id="playerIntelligence" class="form-control" placeholder="1">
+                        <input type="text" id="playerIntelligence" class="form-control" value="1" onkeyup="deriveMagicalDefense()">
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="playerSpeed" class="col-sm-8 col-form-label">Speed</label>
                       <div class="col-sm-4">
-                        <input type="text" id="playerSpeed" class="form-control" placeholder="1">
+                        <input type="text" id="playerSpeed" class="form-control" value="1">
                       </div>
                     </div>
 
@@ -150,49 +158,49 @@
                     <div class="form-group row">
                       <label for="weaponAttack" class="col-sm-8 col-form-label">Weapon Attack</label>
                       <div class="col-sm-4">
-                        <input type="text" id="weaponAttack" class="form-control" placeholder="1">
+                        <input type="text" id="weaponAttack" class="form-control" value="1" onkeyup="deriveAttackPower()">
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="weaponMagicPower" class="col-sm-8 col-form-label">Weapon Magic Power</label>
                       <div class="col-sm-4">
-                        <input type="text" id="weaponMagicPower" class="form-control" placeholder="1">
+                        <input type="text" id="weaponMagicPower" class="form-control" value="1" >
                       </div>
                     </div>
 
                     <div class="form-group row">
-                      <label for="weaponNumOfAttacks" class="col-sm-8 col-form-label">Weapon Number of Attacks</label>
+                      <label for="NumOfAttacks" class="col-sm-8 col-form-label">Number of Attacks</label>
                       <div class="col-sm-4">
-                        <input type="text" id="weaponNumOfAttacks" class="form-control" placeholder="1">
+                        <input type="text" id="numberOfAttacks" class="form-control" value="1">
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="weaponElement" class="col-sm-6 col-form-label">Weapon Element</label>
                       <div class="col-sm-6">
-                        <input list="elementList" id="weaponElement" class="form-control" placeholder="Neutral">
+                        <input list="elementList" id="weaponElement" class="form-control" value="Neutral">
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="armorDefense" class="col-sm-8 col-form-label">Armor Defense</label>
                       <div class="col-sm-4">
-                        <input type="text" id="armorDefense" class="form-control" placeholder="1">
+                        <input type="text" id="armorDefense" class="form-control" value="1" onkeyup="derivePhysicalDefense()">
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="armorMagicDefense" class="col-sm-8 col-form-label">Armor Magic Defense</label>
                       <div class="col-sm-4">
-                        <input type="text" id="armorMagicDefense" class="form-control" placeholder="1">
+                        <input type="text" id="armorMagicDefense" class="form-control" value="1" onkeyup="deriveMagicalDefense()">
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="armorElement" class="col-sm-6 col-form-label">Armor Element</label>
                       <div class="col-sm-6">
-                        <input list="elementList" id="armorElement" class="form-control" placeholder="Neutral">
+                        <input list="elementList" id="armorElement" class="form-control" value="Neutral">
                       </div>
                     </div>
 
@@ -223,6 +231,21 @@
                       <div class="col-sm-8">Magic Defense</div>
                       <div class="col-sm-4" id="magicDefense">1</div>
                     </div>
+
+                    <h4 class="text-center">Ability Power</h4>
+                    <div class="form-group row">
+                      <label for="playerDeathblowPower" class="col-sm-8 col-form-label">Deathblow Power</label>
+                      <div class="col-sm-4">
+                        <input type="text" id="playerDeathblowPower" class="form-control" value="1">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="playerSpellPower" class="col-sm-8 col-form-label">Spell Power</label>
+                      <div class="col-sm-4">
+                        <input type="text" id="playerSpellPower" class="form-control" value="1">
+                      </div>
+                    </div>
                   </div>
 
                 </div><!-- row -->
@@ -233,16 +256,16 @@
         </div> <!-- Card 3, player stats -->
 
         <div class="card">
-          <div class="card-header" role="tab" id="headingFour">
+          <div class="card-header" role="tab" id="statsHeadingTwo">
             <h5 class="mb-0 text-center">
-              <a data-toggle="collapse" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              <a data-toggle="collapse" href="#statsCollapseTwo" aria-expanded="false" aria-controls="statsCollapseTwo">
                 Monster Stats
               </a>
             </h5>
           </div>
-          <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour" data-parent="#accordion">
+          <div id="statsCollapseTwo" class="collapse" role="tabpanel" aria-labelledby="statsHeadingTwo" data-parent="#accordionTwo">
             <div class="card-body">
-              <form id="formMonsterStats">
+              <form id="formMonsterStats" onkeyup="refreshAttackCards()">
                 <div class="row">
                   <div class="col-12" id="monsterStats">
                     <h4 class="text-center">Monster Stats</h4>
@@ -250,42 +273,56 @@
                     <div class="form-group row justify-content-md-center">
                       <label for="monsterAttack" class="col-sm-4 col-form-label">Attack</label>
                       <div class="col-sm-4">
-                        <input type="text" id="monsterAttack" class="form-control" placeholder="0">
+                        <input type="text" id="monsterAttack" class="form-control" value="0">
                       </div>
                     </div>
 
                     <div class="form-group row justify-content-md-center">
                       <label for="monsterDefense" class="col-sm-4 col-form-label">Physical Defense</label>
                       <div class="col-sm-4">
-                        <input type="text" id="monsterDefense" class="form-control" placeholder="0">
+                        <input type="text" id="monsterDefense" class="form-control" value="0">
                       </div>
                     </div>
 
                     <div class="form-group row justify-content-md-center">
                       <label for="monsterMagicDefense" class="col-sm-4 col-form-label">Magic Defense</label>
                       <div class="col-sm-4">
-                        <input type="text" id="monsterMagicDefense" class="form-control" placeholder="0">
+                        <input type="text" id="monsterMagicDefense" class="form-control" value="0">
                       </div>
                     </div>
 
                     <div class="form-group row justify-content-md-center">
                       <label for="monsterIntelligence" class="col-sm-4 col-form-label">Intelligence</label>
                       <div class="col-sm-4">
-                        <input type="text" id="monsterIntelligence" class="form-control" placeholder="0">
+                        <input type="text" id="monsterIntelligence" class="form-control" value="0">
                       </div>
                     </div>
 
                     <div class="form-group row justify-content-md-center">
                       <label for="monsterSpeed" class="col-sm-4 col-form-label">Speed</label>
                       <div class="col-sm-4">
-                        <input type="text" id="monsterSpeed" class="form-control" placeholder="0">
+                        <input type="text" id="monsterSpeed" class="form-control" value="0">
                       </div>
                     </div>
 
                     <div class="form-group row justify-content-md-center">
                       <label for="monsterElement" class="col-sm-4 col-form-label">Monster Element</label>
                       <div class="col-sm-4">
-                        <input list="elementList" id="monsterElement" class="form-control" placeholder="Neutral">
+                        <input list="elementList" id="monsterElement" class="form-control" value="Neutral">
+                      </div>
+                    </div>
+
+                    <div class="form-group row justify-content-md-center">
+                      <label for="monsterDeathblowPower" class="col-sm-4 col-form-label">Deathblow Power</label>
+                      <div class="col-sm-4">
+                        <input type="text" id="monsterDeathblowPower" class="form-control" value="1">
+                      </div>
+                    </div>
+
+                    <div class="form-group row justify-content-md-center">
+                      <label for="monsterSpellPower" class="col-sm-4 col-form-label">Spell Power</label>
+                      <div class="col-sm-4">
+                        <input type="text" id="monsterSpellPower" class="form-control" value="1">
                       </div>
                     </div>
                   </div> <!-- col -->
@@ -294,21 +331,37 @@
             </div>
           </div>
         </div> <!-- Card 4, monster stats -->
-
-
-
-
       </div> <!-- accordion -->
-
-
-
-
     </div> <!-- container div -->
+
+    <script id="attacks-template" type="text/x-handlebars-template">
+      <div class="attacks">
+        <h4>{{title}}</h4>
+        <div class="formula">
+          <p>Formula: {{formula}}</p>
+        </div>
+        <div class="results">
+          <p>Calculated damage estimate: {{result}}</p>
+          <p>Variance: {{resultLow}} - {{resultHigh}}</p>
+        </div>
+      </div>
+    </script>
+
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        refreshAttackCards();
+      });
+    </script>
+    <script src="./app.js"></script>
   </body>
 </html>
