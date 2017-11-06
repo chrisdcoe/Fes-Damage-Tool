@@ -26,7 +26,7 @@ function derivePhysicalDefense () {
 
 function deriveMagicalDefense () {
   let playerIntelligence = Number($("#playerIntelligence").val());
-  let armorMagDef = Number($("#armorMagDef").val());
+  let armorMagDef = Number($("#armorMagicDefense").val());
   $("#magicDefense").html(playerIntelligence + armorMagDef);
 }
 
